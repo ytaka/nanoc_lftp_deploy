@@ -15,7 +15,7 @@ module Nanoc3::Extra::Deployers
     # to be the current working directory).
     def initialize
       # Get site
-      error 'No site configuration found' unless File.file?('config.yaml')
+      error 'No site configuration found' unless (File.file?('config.yaml') || File.file?('nanoc.yaml'))
       @site = Nanoc3::Site.new('.')
     end
 
